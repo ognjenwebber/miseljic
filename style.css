@@ -1,0 +1,1479 @@
+ * {box-sizing:border-box;}
+ 
+  body {margin:0;
+		font-family: 'Lato', sans-serif;
+		overflow-x:hidden; /* prevencija overflow-a zbog zoom in -zoom out animacije na banneru    */
+		 background-color: rgba($iconColor, 0.05);
+  }
+  
+  
+ /* top navigacioni bar */
+  .topnav {
+  overflow: hidden;
+  background-color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:fixed;
+  line-height:50px;
+
+  width:100%;
+  z-index:1000000;
+  
+ 
+}
+
+.topnav img {width:145px;
+			 position:absolute;
+			 left:3%;
+			 filter: drop-shadow(1px 1px  purple);
+             
+}
+/* pomocni div za lakse centriranje logo-a */
+.za-logo {display:flex;
+		  align-items:center;
+		  height:100%;
+		  justify-content:center;
+		  margin-left:230px;
+}
+.topnav a {
+  float:left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding:  16px;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform:uppercase;
+  position:relative;
+  margin-left:3px;
+
+} 
+
+.topnav a:before {
+	content: '';
+	position:absolute;
+	bottom:27%;
+	left:0%;
+	background-color:purple;
+	height:5px;
+	width:0%;
+	transition:0.7s ease-out;
+	opacity:0;
+	
+	
+}
+
+
+.topnav a:hover:before {
+	content: '';
+	position:absolute;
+	bottom:27%;
+	left:15%;
+	background-color:purple;
+	height:1px;
+	width:70%;
+	opacity:1;
+	
+	
+}
+
+
+.topnav a:after {
+	content: '';
+	position:absolute;
+	top:27%;
+	right:0%;
+	background-color:purple;
+	height:8px;
+	width:0%;
+	transition:0.3s ease-out;
+	opacity:0;
+	background:linear-gradient(to right,pink,purple);
+	
+	
+}
+
+
+.topnav a:hover:after {
+	content: '';
+	position:absolute;
+	top:27%;
+	right:15%;
+	background-color:purple;
+	height:1px;
+	width:70%;
+	opacity:1;
+	background:linear-gradient(to right,pink,purple);
+	
+}
+
+/*
+.topnav a:after {
+	content: '';
+	position:absolute;
+	top:10%;
+	right:0%;
+	background-color:purple;
+	height:2px;
+	width:0%;
+	transition:0.3s ease-out;
+	
+	
+}
+
+
+.topnav a:hover:after {
+	content: '';
+	position:absolute;
+	top:10%;
+	right:10%;
+	background-color:purple;
+	height:1px;
+	width:80%;
+	
+	
+}
+*/
+
+
+
+
+
+
+.topnav a:hover  {
+ 
+  color: purple;
+}
+
+.topnav a.active {
+  
+  color: black;
+}
+
+.topnav a.active:before {
+	content: '';
+	position:absolute;
+	bottom:27%;
+	left:8%;
+	background:linear-gradient(to right,white,purple,white);
+	height:2px;
+	width:90%;
+	transition:0.3s ease-in;
+	opacity:1;
+	
+	
+}
+
+.topnav a.active:after {
+	content: '';
+	position:absolute;
+	top:27%;
+	left:8%;
+	background:linear-gradient(to right,white,purple,white);
+	height:2px;
+	width:90%;
+	transition:0.3s ease-in;
+	opacity:1;
+	
+	
+}
+
+
+.topnav .icon {
+  display: none;
+  
+}
+
+.english {position:relative;
+          right:-150px;
+		 
+		  width:30px;
+		  display:flex;
+		 
+		  
+}
+/*
+.english:before {
+          content:'';
+		   position:absolute;
+		   top:130px;
+		   left:10px;
+		  
+		   background-image: url(../images/eng.png);
+		   background-size:contain;
+		   background-repeat:no-repeat;
+		   width:30px;
+		   height:30px;
+		
+		
+		  
+		  
+}
+*/
+.mySlides {display: none;
+           
+
+	}
+
+.mySlides img  {vertical-align: middle;
+                animation: slideShow 7s linear infinite 0s;
+  -o-animation: slideShow 7s ease-out infinite 0s;
+  -moz-animation: slideShow 7s ease-out infinite 0s;
+-webkit-animation: slideShow 7s ease-out infinite 0s;
+
+}
+
+/* Slideshow kontejner */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  height:800px;
+  margin:auto;
+}
+
+/* kontrole za listanje slajdova
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/*
+
+/* pozicioniranje kontrole za listanje 
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+*/
+/*
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+*/
+
+/* blikujuca animacija na slajdu */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+
+}
+
+/* animacija sa svim prefixima */
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@-moz-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@-o-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* animacije za headinge na banneru */ 
+
+
+/* Animacija tekst se penje ka gore */
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,180px,0);
+    }
+
+    to {
+        transform: translate3d(0,20px,0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,180px,0);
+    }
+
+    to {
+        transform: translate3d(0,20px,0);
+        opacity: 1;
+    }
+}
+
+/* Animacija text klizi ka dole */
+
+@keyframes fadeInDown {
+    from {
+        transform: translate3d(0,40px,0);
+    }
+
+    to {
+        transform: translate3d(0,30px,0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInDown {
+    from {
+        transform: translate3d(0,200px,0);
+    }
+
+    to {
+        transform: translate3d(0,30px,0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+/* Animacija tekst se penje ka gore */
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,180px,0);
+    }
+
+    to {
+        transform: translate3d(0,20px,0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,180px,0);
+    }
+
+    to {
+        transform: translate3d(0,20px,0);
+        opacity: 1;
+    }
+}
+
+/* Animacija text klizi ka dole */
+
+@keyframes fadeInDown {
+    from {
+        transform: translate3d(0,40px,0);
+    }
+
+    to {
+        transform: translate3d(0,30px,0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInDown {
+    from {
+        transform: translate3d(0,200px,0);
+    }
+
+    to {
+        transform: translate3d(0,30px,0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+	animation-delay: 2s;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+	
+}
+
+
+.animated1 {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+	animation-delay: 1s;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+	
+}
+
+.animated2 {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+	animation-delay: 3s;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+	
+}
+
+.animated3 {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+	animation-delay: 2.3s;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+	
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+	margin-left:2%;
+}
+
+
+.animatedFadeInDown {
+    opacity: 0
+}
+
+.fadeInDown {
+    opacity: 0;
+    animation-name: fadeInDown;
+    -webkit-animation-name: fadeInDown;
+	margin-left:2%;
+}
+/* glavni kontejner za animacije, zbog lakseg pozicioniranja na responsivu */
+.mejn {margin-left:10%;
+       z-index:100;
+	   position:absolute;
+	   bottom:300px;
+	   width:888px;
+	
+	   }
+
+.oaza {
+    
+display: flex;
+    color: white;
+	text-shadow:1px 1px black;
+    background: linear-gradient(to right,rgba(65, 20, 123, 0.3),rgba(116, 45, 165, 3),rgba(207, 86, 201, 0.3));
+    font-size: 23px;
+    font-family: 'Lora';
+    font-style: italic;
+    width:390px;
+	line-height:12px;
+	align-items:center;
+	justify-content:center;
+    margin-bottom: 23px;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+	
+
+	
+}
+
+.naslov {
+
+	font-size: 45px;
+    color: white;
+    font-weight: 700;
+	margin-top:20px;
+	margin-bottom:20px;
+	font-family: 'Satisfy', cursive;
+	/*
+	-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-image: url(../images/gold.jpg);
+ */
+ animation-name:h1;
+    animation-duration:18s;
+     animation-iteration-count:infinite;
+	 
+
+}
+
+.naslov:before {content:'';
+		   display:block;
+           position:absolute;
+           background: linear-gradient(to right,rgba(65, 20, 123, 1),rgba(116, 45, 165, 1),rgba(207, 86, 201, 1));
+           width:0px;
+           height:8px;
+           top:75px;  
+           transition:2s;
+            visibility:hidden;
+            animation-name:krile;
+            animation-duration:12s;
+			z-index:-100;
+		
+         
+           }
+
+@keyframes  h1 {  0% {top:10px;opacity:0;color:white;}
+	            1% {top:150px;opacity:1;color:white;}
+                40% {top:160px;color:white;text-shadow:2px 1px black;}
+				/*
+                50.1% {color:white;}   
+                50.3% {color:purple;}       
+                 51% {color:white;}       
+                51.5% {color:purple;}
+                 
+                100% {color:purple;}  
+				*/
+}
+@keyframes krile { 0%  {visibility:hidden;}
+		          100% {visibility:visible;width:390px}}
+
+
+.promo-tekst p { font-size: 20px;
+					line-height: 20px;
+					text-align:left;
+					color: #FFFFFF;
+				    width:400px;
+					text-shadow:1px 1px black;
+					font-weight:100;
+	}
+	
+.dugme {
+	
+    font-size: 16px;
+    color: white;
+    font-family: 'Poppins';
+    padding: 9px 28px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:18px 12px;
+     position:relative;
+	outline:none;
+    transition-delay:0.1s;
+	background:#3c1477;
+	
+	cursor:pointer;
+	transition:0.3s;
+	-webkit-transition:0.3s;
+	
+	
+
+}
+
+.dugme:hover {
+	
+	  background: linear-gradient(to right,rgba(65, 20, 123, 1),rgba(116, 45, 165, 1),rgba(207, 86, 201, 1));
+}
+
+.flex-linkovi {width:888px;  
+display:flex;}
+.dugme-za-youtube {
+	height:45px;
+	width:45px;
+	display:flex;
+	border-radius:50%;
+	background:radial-gradient(white,pink);
+	font-size:23px;
+	color:purple;
+	align-items:center;
+	justify-content:center;
+	margin-left:12px;
+	position:relative;
+	bottom:3px;
+	
+	
+	box-shadow: 30px 30px 30px 30px rgba(142, 68, 173, 1);
+	animation: pulse-purple 3s infinite;
+	
+}
+
+
+
+/* zoom in animacija na slider-u */
+@keyframes 
+slideShow {  0% {
+
+ transform:scale(1);
+ -ms-transform:scale(1);
+}
+ 1% {
+
+}
+
+ 90% {
+ 
+ transform:scale(1.1);
+ -ms-transform:scale(1.1);
+}
+99% {
+
+ transform:scale(1);
+ -ms-transformm:scale(1);
+}
+
+ 100% {
+
+ transform:scale(1);
+ -ms-transformm:scale(1);
+}
+}
+ @-o-keyframes 
+slideShow {  0% {
+ opacity: 0;
+ -o-transform:scale(1);
+}
+ 1% {
+ opacity: 1
+}
+ 25% {
+ opacity: 1;
+}
+ 30% {
+ opacity: 0;
+ -o-transform:scale(1.1);
+}
+ 100% {
+ opacity: 0;
+ -o-transformm:scale(1);
+}
+}
+ @-moz-keyframes 
+slideShow {  0% {
+ opacity: 0;
+ -moz-transform:scale(1);
+}
+ 1% {
+ opacity: 1
+}
+ 25% {
+ opacity: 1;
+}
+ 30% {
+ opacity: 0;
+ -moz-transform:scale(1.1);
+}
+ 100% {
+ opacity: 0;
+ -moz-transformm:scale(1);
+}
+}
+ @-webkit-keyframes 
+slideShow {  0% {
+ opacity: 0;
+ -webkit-transform:scale(1);
+}
+ 1% {
+ opacity: 1
+}
+ 25% {
+ opacity: 1;
+}
+ 30% {
+ opacity: 0;
+ -webkit-transform:scale(1.1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transformm:scale(1);
+}
+}
+
+/* preloader animacija 
+
+.loader{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+}
+.loader .inner{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: animate-preloader 4s infinite;
+}
+.loader .inner:nth-child(1){ animation-delay: 4s; }
+.loader .inner:nth-child(2){ animation-delay: 3.5s; }
+.loader .inner:nth-child(3){ animation-delay: 3s; }
+.loader .inner:nth-child(4){ animation-delay: 2.5s; }
+.loader .inner:nth-child(5){ animation-delay: 2s; }
+.loader .inner:nth-child(6){ animation-delay: 1.5s; }
+.loader .inner:nth-child(7){ animation-delay: 1s; }
+.loader .inner:nth-child(8){ animation-delay: 0.5s; }
+@keyframes animate-preloader{
+    0%{
+        width: 0px;
+        height: 0px;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    20%{ box-shadow: 0 5px 60px 15px rgba(255, 255, 255, 0.4) inset; }
+    40%{ box-shadow: 0 5px 60px 15px rgba(255, 255, 255, 0.2) inset; }
+    100%{
+        width: 200px;
+        height: 200px;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset;
+    }
+}
+*/
+
+
+@keyframes pulse-purple {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+	}
+}
+
+
+
+@keyframes pulse-purple3 {
+	0% {
+		transform: scale(0.95);
+		border-radius:27px;
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		border-radius:27px;
+		box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		border-radius:27px;
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+	}
+}
+
+
+.about {display:flex;
+background:linear-gradient(to top,#D1AFD3,white,white,white);
+
+				background-size:cover;
+				background-repeat:no-repeat;
+z-index:1001;
+margin-top:-10px;
+position:relative;
+
+}
+.about-col {flex:1;
+			display:flex;
+			padding:30px;
+			
+		    justify-content:center;
+}
+.column {flex-direction:column;}
+.column-neki {flex:1;
+			 
+			 
+}
+.column-neki img {width:50%;
+height:50%;}
+.imidz {width:78%; height:570px;
+		margin-left:11%;
+		margin-top:1.4%;
+}
+.column-neki img:hover {opacity:0.3;
+border:3px solid purple;}
+					
+.about-col h5 {
+text-shadow:1px 1px solid black;}
+/*
+.about-col img {
+					   outline-width:3px;
+					   outline-color:purple;
+					   outline-style:outset;
+				height:320px;
+				width:350px;
+				margin-top:100px;
+				position:relative;
+				z-index:101;
+}
+*/
+
+.about-col video {     background-image: url('../images/logo.jpg');
+				background-size:contain;
+					   outline-width:3px;
+					   outline-color:gray;
+					   outline-style:outset;
+				height:320px;
+				width:350px;
+				margin-top:100px;
+				position:relative;
+				z-index:101;
+				background:transparent);
+				
+}
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+.about-col span { 
+				font-weight:100;
+}
+.ram:before {content:'';
+                    
+					   border:3px solid lightgray;
+				height:300px;
+				width:300px;
+				display:block;
+				position:absolute;
+				top:80px;
+				left:30px;
+				z-index:100;
+				background-image: url('../images/ordinacija.jpg');
+				background-size:cover;
+				background-repeat:no-repeat;
+}
+
+.dugmici {display:flex;
+		  flex-direction:row;
+		  }
+.nasa-prednost {
+	background:#f5f5f5;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	
+}
+	span.ljubicanstveno {color:purple;
+	text-shadow:1px 1px black;
+	font-family:satisfy;
+	font-size:34px;}
+.nasa-prednost h1 {text-align:center;}
+
+.nasa-prednost-col1 {display:flex;
+					background:white;
+					flex-direction:column;
+					margin-left:80px;
+					padding:30px;
+					justify-content:center;
+	                align-items:center;
+					z-index:124;
+					flex:1;
+					
+}
+
+.nasa-prednost-col3 {display:block;
+					background:white;
+					flex-direction:column;
+					flex:2;
+					height:500px;
+					justify-content:center;
+	                align-items:center;
+					background-image: url(../images/3.jpg);
+					background-size:cover;
+					background-repeat:no-repeat;
+					margin-top:45px;
+					margin-right:80px;
+					
+				   
+					z-index:123;
+}
+.flex {display:flex;
+}
+
+.kolumne {display:flex;}
+
+.kockica {height:68px;
+		  width:68px;
+		  background-image: url(../images/ljubicasti-gradient.gif);
+          justify-content:center;
+	                align-items:center;
+					position:relative;
+transform:rotate(45deg);
+animation: pulse-purple1 3s infinite;
+
+}
+.kockica img { transform:rotate(-45deg);
+margin-top:3px;
+margin-left:10px;
+}
+
+@keyframes pulse-purple1 {
+	0% {
+		transform: scale(0.95) rotate(45deg);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+		
+	}
+	
+	70% {
+		transform: scale(1) rotate(45deg) ;
+		box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+	}
+	
+	100% {
+		transform: scale(0.95)rotate(45deg) ;
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+	}
+}
+
+.usluge { display:flex;
+          margin-bottom:145px;
+}
+.usluge-col {background-image: url('../images/alatke.jpg');
+				background-size:cover;
+				flex:1;
+				padding:30px;
+				height:888px;
+background-repeat:no-repeat;
+opacity:0.5;
+}
+
+.usluge-col1 {  border-top:1px solid purple;
+				flex:1;
+				padding:50px;
+				height:300px;
+background-repeat:no-repeat;
+
+text-align:center;}
+.usluge-col1 p { 
+color:#202020;}
+.usluge-col p {padding:0  80px;}
+
+.dugmici-margina {margin-right:100px;
+width:570px;}
+.dugme1 {
+	border: 1px solid #fff;
+    font-size: 16px;
+    color: white;
+    font-family: 'Poppins';
+    padding: 9px 38px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:18px;
+	margin-left:10px;
+     position:relative;
+	
+    transition-delay:0.1s;
+	background:#3c1477;
+	
+	cursor:pointer;
+	transition:0.3s;
+	-webkit-transition:0.3s;
+	
+	
+
+}
+.dugme1-gradient { background: linear-gradient(to right,rgba(65, 20, 123, 1),rgba(116, 45, 165, 1),rgba(207, 86, 201, 0.8));
+transition:0.8s;}
+.dugme1-gradient:hover {animation: pulse-purple3 1s infinite;}
+.dugme1:hover {
+	
+	  background: linear-gradient(to right,rgba(65, 20, 123, 1),rgba(116, 45, 165, 1),rgba(207, 86, 201, 1));
+}
+.naslov3-kontejner { background: linear-gradient(to right,rgba(65, 20, 123, 0.3),rgba(116, 45, 165, 3),rgba(207, 86, 201, 0.3));
+	height:270px;
+	width:270px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	transform:rotate(45deg);
+   position:relative;
+   left:30px;
+   
+	
+	
+    
+	
+	}
+.naslov3 {font-size: 45px;
+    color: white;
+    font-weight: 700;
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:0 120px;
+	font-family: 'Satisfy', cursive;
+	 transform:rotate(-45deg);
+
+}
+
+
+
+
+.podloga{
+	               
+					position:relative;
+					left:200px;
+					width:200px;
+					height:1px;
+					background:linear-gradient(to right,white,purple,white);
+			background:-webkit-linear-gradient(to right,white,purple,white);
+					background:-moz-linear-gradient(to right,white,purple,white);
+}                 
+	
+
+				
+.usluge-box {display:flex;
+
+flex:3;}
+			
+.boks {display:flex;
+	   flex-direction:column;
+	   flex:1;
+	   padding:0 30px;
+	   
+}
+
+.boks h3 {position:relative;
+          font-weight:800;
+letter-spacing:1px;
+text-transform:uppercase;
+font-size:12px;
+text-align:right;
+}
+
+.boks1 h3 {position:relative;
+          font-weight:800;
+letter-spacing:1px;
+text-transform:uppercase;
+font-size:12px;
+text-align:left;
+
+}
+/*
+.boks h3:after { content:'';
+				 display:block;
+				 position:absolute;
+				 width:18px;
+				 height:2px;
+				 background:black;
+				 right:12px;
+				 bottom:8px;
+}
+*/
+.boks1 {display:flex;
+	   flex-direction:column;
+	   flex:1;
+}
+.boks1 h3 {position:relative;}
+/*			
+.boks1 h3:before { content:'';
+				 display:block;
+				 position:absolute;
+				 width:18px;
+				 height:2px;
+				 background:black;
+				 left:23px;
+				 bottom:8px;
+}
+*/
+.boks p {margin:3px auto;
+text-align:right;
+margin-right:0;
+
+}
+.boks1 p {margin:3px auto;
+text-align:left;
+margin-left:0;
+}
+​
+.klik {display:flex;
+    
+}
+.klak1 { background:red;
+
+flex:3;
+}
+
+.klak { 
+
+flex:3;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row1 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  margin-top:45px;
+ 
+  
+ 
+}
+
+/* Create four equal columns that sits next to each other */
+.column1 {
+  flex: 25%;
+  max-width: 25%;
+  
+  padding: 0 3px;
+  
+}
+
+.padding-za-slike { padding-left:18px;}
+.column1 img {
+  margin-top: 8px;
+  vertical-align: middle;
+  border:3px solid rgba(128, 0, 128, 0.1);
+  
+ 
+  
+}
+.column1 img:hover {
+	 -webkit-transform: scale(1.08);
+  transform: scale(1.08);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+	border:5px solid rgba(128, 0, 128, 0.5);
+	position:relative;
+	
+}
+
+.modal {
+  display: none;
+ 
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  backdrop-filter: blur(27px);  
+  z-index:10000;
+  overflow-x:hidden;
+   
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background:none;
+  margin:auto;
+  padding: 0;
+  width: 90%;
+   -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 3s;
+  max-width: 1200px;
+  
+
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 23%;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow:3px 4px black;
+  
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides8 {
+  display: none;
+   -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev8,
+.next8 {
+  cursor: pointer;
+  position: absolute;
+  top: 10%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+ 
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  	animation: pulse-purple 3s infinite;
+  user-select: none;
+  -webkit-user-select: none;
+  background: linear-gradient(to right,rgba(65, 20, 123, 0.3),rgba(116, 45, 165, 3),rgba(207, 86, 201, 0.3));
+}
+
+/* Position the "next button" to the right */
+.next8 {
+  right: 1080px;
+
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev8:hover,
+.next8:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.mySlides8 img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.flex-this {display:flex;
+			align-items:center;
+}
+
+.naslovneki {display:flex;
+			 text-align:center;
+			 justify-content:center;
+			 letter-spacing:1px;
+			 font-weight:100;
+			 position:relative;
+			
+}
+
+.naslovneki::after {content:'';
+					position:absolute;
+					top:45px;
+					width:200px;
+					height:1px;
+					background:linear-gradient(to right,white,purple,white);
+			background:-webkit-linear-gradient(to right,white,purple,white);
+					background:-moz-linear-gradient(to right,white,purple,white);
+}                 
+
+
+/* efekat da fejduje na galeriji i na  slidojvima galerije */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}	
+
+.lekarski-tim {background-color:linear-gradient(to right,white,#E6E7E8);
+			   display:flex;
+			 justify-content:center;
+			   align-items:center;
+			   margin:0 25px;
+}
+.lekari-column { flex:1;
+	
+}
+
+.lekari-column img {width:80%;}
+
+.lekari-column1 { flex:1;
+background:white;
+
+
+}
+.mocni-naslov {color:black;
+			   opacity:0.7;
+			   font-size:40px;
+			   padding:0 50px;
+			   font-family: 'Roboto', sans-serif;
+			
+			   
+			   
+}
+
+.lekari-podnaslov { font-style:italic;
+					font-family:lora;
+					margin-top:-20px;
+					letter-spacing:1px;
+					padding:0 50px;
+color:grey;}
+
+.lekarski-tim p {padding:23px 50px;
+				 opacity:0.7;
+				 font-size:18;
+				 letter-spacing:1px;
+				 line-height:19px;
+				 text-align:left;
+				 margin-top:-30px;
+}
+
+
+
+.align-right {text-align:justify;
+}
+
+.kontakt {
+	display:flex;
+	background:#f2f2f2;
+}
+.mapa {padding:23px;
+flex:1;}
+	
+	
+}
+.forma {flex:1;
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-top:8px;
+ 
+}
+
+textarea {width:91%;
+margin-left:20px;
+
+}
+
+input[type=submit] {
+  background: #282828;;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  transition:0.8s ease-in;
+  width:91%;
+  margin-right:20px;
+}
+
+input[type=submit]:hover {
+  background:#D1AFD3;
+
+}
+
+.container-kontakt-forme {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width:100%;
+  margin-top:23px;
+}
+
+
+.additional-info {
+	display:flex;
+    align-items:center;
+	justify-content:center;
+	background-color: #191919;
+    box-sizing:border-box;
+    padding:20px;
+	
+}
+
+.kolona {
+border:1px solid #282828;
+display:flex;
+flex:1;
+flex-direction:column;
+align-items:center;
+height:250px;
+width:250px;
+margin:0 10px;
+color:#676767;
+	}
+.kolona h3 {color:white;
+			position:relative;
+}
+.kolona h3:after {
+	content:'';
+	display:inline-block;
+	position:absolute;
+	top:30px;
+	left:1px;
+	width:180px;
+	height:1px;
+	background:linear-gradient(to right,#282828,purple,#282828);
+    background:-webkit-linear-gradient(to right,#282828,purple,#282828);	
+	background:-moz-linear-gradient(to right,#282828,purple,#282828);	
+}
+	
+	
+	
+.footer { background:#101010;
+		  text-align:center;
+          color:#676767;
+		  padding:10px;
+		  font-weight:100;
+		  font-size:12px;
+}
+.gradient { background: linear-gradient(to right,rgba(65, 20, 123, 1),rgba(116, 45, 165, 1),rgba(207, 86, 201, 0.8));
+transition:0.8s;
+
+}
+.gradient:hover {animation: pulse-purple3 1s infinite;}
+	
+
